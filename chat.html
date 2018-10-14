@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="static/css/bulma.css" />
+    <link rel="stylesheet" href="static/css/bulma-timeline.min.css" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+    <style>
+    .ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .message-text {
+      max-width: 80%
+    }
+
+    .message-data-time {
+      color: hsl(0, 0%, 71%);
+    }
+
+    .tag {
+      margin: none;
+    }
+
+    .online {
+      color: hsl(141, 71%, 48%);
+    }
+
+    .chatbox {
+      width: 400px;
+    }
+
+    .message-data {
+      margin-: 5px;
+      clear: both;
+    }
+
+    .message-container {
+      width: 100%;
+      overflow-y: scroll;
+      padding: 5px;
+      height: 200px;
+    }
+
+    #bottom-chatbox {
+      z-index: 999;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      border-radius: 0;
+      width: 100%;
+      display: none;
+      margin-bottom: 0;
+    }
+
+    .notification {
+      display: inline-block;
+      clear: both;
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="box chatbox" id="chatbox">
+      <i class="fa fa-minus-square" id="minimize"></i>
+      <p class="subtitle">
+        Applying for Credit - Chat
+      </p>
+      <hr />
+      <div class="message-container">
+        <ul id="message-list">
+
+          <script id="message-template-right" type="text/template">
+            <li>
+              <div class="message-data float-right">
+                <span class="message-data-name is-size-7"><i class="fa fa-circle online"></i> {{name}}</span>
+                <span class="message-data-time is-size-7">{{time}}</span>
+              </div>
+              <div class="notification float-right" style="">
+                {{message}}
+              </div>
+            </li>
+          </script>
+
+          <script id="message-template-left" type="text/template">
+            <li>
+              <div class="message-data">
+                <span class="message-data-name is-size-7"><i class="fa fa-circle online"></i> {{name}}</span>
+                <span class="message-data-time is-size-7">{{time}}</span>
+              </div>
+              <div class="notification" style="">
+                {{message}}
+              </div>
+            </li>
+          </script>
+
+        </ul>
+      </div>
+
+
+      <input id='chatmessage' class="input" type="text" placeholder="Text input" style="margin-top: 50px;">
+    </div>
+
+
+    <div id="bottom-chatbox" class="box">
+      <i class="fa fa-plus-square" id="maximize"></i>
+      Applying For Credit - Chat
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="static/js/chat.js"></script>
+  </body>
+</html>
