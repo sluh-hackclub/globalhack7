@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -29,6 +30,78 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
 #week5 {
   cursor: pointer;
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+.modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+button.TexT{background: none; border: none; color: #e8e8e8}
 </style>
 
 
@@ -63,6 +136,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
     <div class="timeline-content is-success">
       <p class="heading">Day One</p>
       <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+      <button id="myBtn" class="TexT" >More Info</button>
+     
+      <div id="myModal" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal');
+	  var btn = document.getElementById("myBtn");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
     </div>
   </div>
     <div class="timeline-item is-success is-primary">
@@ -71,6 +169,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content is-success">
         <p class="heading">Day Two</p>
         <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+        <button id="myBtn2" class="TexT" >More Info</button>
+     
+      <div id="myModal2" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal2');
+	  var btn = document.getElementById("myBtn2");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -79,6 +202,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Three</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtn3" class="TexT" >More Info</button>
+     
+      <div id="myModal3" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal3');
+	  var btn = document.getElementById("myBtn3");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -87,6 +235,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Four</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtn4" class="TexT" >More Info</button>
+     
+      <div id="myModal4" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal4');
+	  var btn = document.getElementById("myBtn4");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
 
@@ -96,6 +269,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Five</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtn5" class="TexT" >More Info</button>
+     
+      <div id="myModal5" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal5');
+	  var btn = document.getElementById("myBtn5");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
   </section>
@@ -118,6 +316,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
     <div class="timeline-content is-success">
       <p class="heading">Day One</p>
       <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+      <button id="myBtn6" class="TexT" >More Info</button>
+     
+      <div id="myModal6" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal6');
+	  var btn = document.getElementById("myBtn6");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
     </div>
   </div>
     <div class="timeline-item is-success is-primary">
@@ -126,6 +349,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content is-success">
         <p class="heading">Day Two</p>
         <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+        <button id="myBtn7" class="TexT" >More Info</button>
+     
+      <div id="myModal7" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal7');
+	  var btn = document.getElementById("myBtn7");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -134,6 +382,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Three</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtn8" class="TexT" >More Info</button>
+     
+      <div id="myModal8" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal8');
+	  var btn = document.getElementById("myBtn8");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -142,6 +415,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Four</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtn9" class="TexT" >More Info</button>
+     
+      <div id="myModal9" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModal9');
+	  var btn = document.getElementById("myBtn9");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
 
@@ -151,6 +449,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Five</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtna" class="TexT" >More Info</button>
+     
+      <div id="myModala" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModala');
+	  var btn = document.getElementById("myBtna");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
   </section>
@@ -175,6 +498,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
     <div class="timeline-content is-success">
       <p class="heading">Day One</p>
       <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+      <button id="myBtnb" class="TexT" >More Info</button>
+     
+      <div id="myModalb" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalb');
+	  var btn = document.getElementById("myBtnb");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
     </div>
   </div>
     <div class="timeline-item is-success is-primary">
@@ -183,6 +531,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content is-success">
         <p class="heading">Day Two</p>
         <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+        <button id="myBtnc" class="TexT" >More Info</button>
+     
+      <div id="myModalc" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalc');
+	  var btn = document.getElementById("myBtnc");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -191,6 +564,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Three</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtnd" class="TexT" >More Info</button>
+     
+      <div id="myModald" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModald');
+	  var btn = document.getElementById("myBtnd");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -199,6 +597,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Four</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtne" class="TexT" >More Info</button>
+     
+      <div id="myModale" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModale');
+	  var btn = document.getElementById("myBtne");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
 
@@ -208,6 +631,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Five</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtnf" class="TexT" >More Info</button>
+     
+      <div id="myModalf" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalf');
+	  var btn = document.getElementById("myBtnf");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
   </section>
@@ -229,6 +677,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
     <div class="timeline-content is-success">
       <p class="heading">Day One</p>
       <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+      <button id="myBtng" class="TexT" >More Info</button>
+     
+      <div id="myModalg" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalg');
+	  var btn = document.getElementById("myBtng");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
     </div>
   </div>
     <div class="timeline-item is-success is-primary">
@@ -237,6 +710,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content is-success">
         <p class="heading">Day Two</p>
         <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+        <button id="myBtnh" class="TexT" >More Info</button>
+     
+      <div id="myModalh" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalh');
+	  var btn = document.getElementById("myBtnh");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -245,6 +743,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Three</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtni" class="TexT" >More Info</button>
+     
+      <div id="myModali" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModali');
+	  var btn = document.getElementById("myBtni");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -253,6 +776,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Four</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtnj" class="TexT" >More Info</button>
+     
+      <div id="myModalj" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalj');
+	  var btn = document.getElementById("myBtnj");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
 
@@ -262,6 +810,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Five</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtnk" class="TexT" >More Info</button>
+     
+      <div id="myModalk" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalk');
+	  var btn = document.getElementById("myBtnk");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
   </section>
@@ -282,6 +855,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
     <div class="timeline-content is-success">
       <p class="heading">Day One</p>
       <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+      <button id="myBtnl" class="TexT" >More Info</button>
+     
+      <div id="myModall" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModall');
+	  var btn = document.getElementById("myBtnl");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
     </div>
   </div>
     <div class="timeline-item is-success is-primary">
@@ -290,6 +888,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content is-success">
         <p class="heading">Day Two</p>
         <p class="editableText dayTwoText">Timeline content - Can include any HTML element</p>
+        <button id="myBtnm" class="TexT" >More Info</button>
+     
+      <div id="myModalm" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalm');
+	  var btn = document.getElementById("myBtnm");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -298,6 +921,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Three</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtnn" class="TexT" >More Info</button>
+     
+      <div id="myModaln" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModaln');
+	  var btn = document.getElementById("myBtnn");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
     <div class="timeline-item is-success is-primary">
@@ -306,6 +954,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Four</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtno" class="TexT" >More Info</button>
+     
+      <div id="myModalo" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalo');
+	  var btn = document.getElementById("myBtno");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
 
@@ -315,6 +988,31 @@ background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
       <div class="timeline-content">
         <p class="heading">Day Five</p>
         <p>Timeline content - Can include any HTML element</p>
+        <button id="myBtnp" class="TexT" >More Info</button>
+     
+      <div id="myModalp" class="modal">
+	      <!-- Modal content -->
+	      <div class="modal-content">
+		      <span class="close" style="color:black">&times;</span>
+			  <p style="color:black">Specific Instructions</p>
+	      </div> 
+	  </div>
+	  <script>
+	  var modal = document.getElementById('myModalp');
+	  var btn = document.getElementById("myBtnp");
+	  var span = document.getElementsByClassName("close")[0];
+	  btn.onclick = function() {
+	  	  modal.style.display = "block";
+	  }
+	  span.onclick = function() {
+	  	  modal.style.display = "none";
+	  }
+	  window.onclick = function(event) {
+      	  if (event.target == modal) {
+      	  	  modal.style.display = "none";
+      	  }
+  	  }
+	  </script>
       </div>
     </div>
   </section>
