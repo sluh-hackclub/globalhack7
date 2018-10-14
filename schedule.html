@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="it has-background-info">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule Meeting</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <!-- Bulma Version 0.7.1-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+  <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body style="background-color=#fff">
+  <script src="~bulma-calendar/dist/js/bulma-calendar.min.js">
+
+
+  // Initialize all input of date type.
+  var calendars = bulmaCalendar.attach('[type="date"]', options);
+
+  // Loop on each calendar initialized
+  for(var i = 0; i < calendars.length; i++) {
+  // Add listener to date:selected event
+  calendars[i].on('date:selected', date => {
+  console.log(date);
+  });
+  }
+
+  </script>
+  <!-- START NAV -->
+  <nav class="navbar has-background-info">
+      <div class="container">
+          <div class="navbar-brand">
+              <a class="navbar-item brand-text" href="../">
+
+      </a>
+
+      </div>
+  </nav>
+  <!-- END NAV -->
+        <div class="container is-info is-mobile">
+          <div class="columns">
+            <div class="column is-3">
+              <aside class="menu">
+                <ul class="menu-list">
+                    <li>
+                        <font class="has-text-black"><strong>Manage Your Mentee</strong></font>
+                        <ul>
+                            <li><a href="timeline.html"><font class="has-text-white">Add Tasks</font></a></li>
+                            <li><a><font class="has-text-white">Chatroom</font></a></li>
+                            <li><a><font class="has-text-white">Schedule a Meeting</font></a></li>
+                        </ul>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+                <div class="column is-9">
+                      <div class="column is-9">
+
+
+                              <div class="content">
+                                <div class="control has-icons-left has-icons-right">
+                                  <label class="checkbox">
+                                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=65jhfu35er3t5rvrs74i55jn78%40group.calendar.google.com&amp;color=%23691426&amp;ctz=America%2FChicago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                                  </label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <br />
+
+                          </div>
+                      </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+</html>

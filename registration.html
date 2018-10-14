@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<!-- Bulma Version 0.7.1-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style media="screen">
+
+html,body {
+font-family: 'Open Sans', serif;
+font-size: 14px;
+font-weight: 300;
+}
+.hero.is-success {
+background-image: linear-gradient(141deg,#04a6d7 0,#209cee 71%,#3287f5 100%);
+}
+.hero .nav, .hero.is-success .nav {
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+.box {
+/* margin-top: 5rem; */
+}
+.avatar {
+margin-top: -70px;
+padding-bottom: 20px;
+}
+.avatar img {
+padding: 5px;
+background: #fff;
+border-radius: 50%;
+-webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+input {
+font-weight: 300;
+}
+p {
+font-weight: 700;
+}
+p.subtitle {
+padding-top: 1rem;
+}
+input.login-error, input.login-error:hover, input.login-error:focus, input.login-error:active {
+border-color: red;
+}
+
+
+</style>
+</head>
+
+<body>
+<section class="hero is-success is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <font size=20>Registration</font>
+                <!-- <h3 class="title has-text-white">Login</h3> -->
+                <div class="box">
+                    <section id="login-error-message"></section>
+                    <div class="container">
+
+                    </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="firstname-input" class="input is-large" type="text" placeholder="First Name" autofocus="">
+                                <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="lastname-input" class="input is-large" type="text" placeholder="Last Name">
+                                <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="identity-input" class="input is-large" type="text" placeholder="Cultural Identity" autofocus="">
+                                <span class="icon is-small is-left"><i class="fas fa-users"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="language-input" class="input is-large" type="text" placeholder="Language Spoken" autofocus="">
+                                <span class="icon is-small is-left"><i class="fas fa-comment"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="age-input" class="input is-large" type="text" placeholder="Age" autofocus="">
+                                <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="email-input" class="input is-large" type="email" placeholder="Email">
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="phone-input" class="input is-large" type="text" placeholder="Phone Number">
+                                <span class="icon is-small is-left"><i class="fas fa-phone"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="password-input" class="input is-large" type="password" placeholder="Password">
+                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="password-confirm" class="input is-large" type="password" placeholder="Confirm Password">
+                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                        <div class="control">
+                          <label class="radio">
+                            <input type="radio" name="question">
+                            Immigrant
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="question">
+                            Mentor
+                          </label>
+                        </div>
+                      </div>
+                        <!-- <div class="field">
+                            <label class="checkbox">
+              <input type="checkbox">
+              Remember me
+            </label>
+                        </div> -->
+                        <button id="login-button" class="button is-block is-info is-large is-fullwidth">Join Now!</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+function isNumeric (value) {
+return /^-{0,1}\d+$/.test(value);
+}
+function validateEmail(email) {
+var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+return re.test(email);
+}
+function registerAction() {
+// First check for any fields filled in
+if (document.getElementById('email-input').value.length > 0 || document.getElementById('password-input').value.length > 0 || document.getElementById('password-confirm').value.length > 0 || document.getElementById('studentid-input').value.length > 0 || document.getElementById('firstname-input').value.length > 0 || document.getElementById('lastname-input').value.length > 0) {
+if (document.getElementById('firstname-input').value.length > 0) {
+  if (document.getElementById('lastname-input').value.length > 0) {
+    if (validateStudentID(document.getElementById('studentid-input').value)) {
+      if (validateEmail(document.getElementById('email-input').value)) {
+        if (document.getElementById('password-input').value.length > 0) {
+          if (document.getElementById('password-confirm').value.length > 0) {
+            if (document.getElementById('password-input').value === document.getElementById('password-confirm').value) {
+              // Fields are good
+              axios.post('/api/v1/register', {
+                email: document.getElementById('email-input').value,
+                password: document.getElementById('password-input').value,
+                passwordConfirm: document.getElementById('password-confirm').value,
+                firstName: document.getElementById('firstname-input').value,
+                lastName: document.getElementById('lastname-input').value,
+                studentId: document.getElementById('studentid-input').value
+              }).then(function (response) {
+                if (response.data.success) {
+                  if (response.data.loggedIn) {
+                    window.location = response.data.redirectTo;
+                  } else if (response.data.error === 'User already exists') {
+                    document.getElementById('email-input').classList.add('login-error');
+                    document.getElementById('firstname-input').classList.remove('login-error');
+                    document.getElementById('lastname-input').classList.remove('login-error');
+                    document.getElementById('studentid-input').classList.remove('login-error');
+                    document.getElementById('password-confirm').classList.remove('login-error');
+                    document.getElementById('password-input').classList.remove('login-error');
+                    document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">An account exists with that email</span></div>";
+                  } else {
+                    // document.getElementById('email-input').classList.add('login-error');
+                    // document.getElementById('password-input').classList.add('login-error');
+                    // document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Incorrect email or password</span></div>";
+                    document.getElementById('email-input').classList.remove('login-error');
+                    document.getElementById('password-input').classList.remove('login-error');
+                    document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Server error, try again</span></div>";
+                  }
+                } else {
+                  // Internal server error
+                  document.getElementById('email-input').classList.remove('login-error');
+                  document.getElementById('password-input').classList.remove('login-error');
+                  document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Server error, try again</span></div>";
+                }
+              }).catch(function (err) {
+                console.error(err);
+              });
+            } else {
+              // Confirmation doesnt match
+              document.getElementById('email-input').classList.remove('login-error');
+              document.getElementById('firstname-input').classList.remove('login-error');
+              document.getElementById('lastname-input').classList.remove('login-error');
+              document.getElementById('studentid-input').classList.remove('login-error');
+              document.getElementById('password-confirm').classList.add('login-error');
+              document.getElementById('password-input').classList.add('login-error');
+              document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">The passwords do not match</span></div>";
+            }
+          } else {
+            // no password confirm
+            document.getElementById('email-input').classList.remove('login-error');
+            document.getElementById('password-input').classList.remove('login-error');
+            document.getElementById('firstname-input').classList.remove('login-error');
+            document.getElementById('lastname-input').classList.remove('login-error');
+            document.getElementById('studentid-input').classList.remove('login-error');
+            document.getElementById('password-confirm').classList.add('login-error');
+            document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Confirm your password</span></div>";
+          }
+        } else {
+          // no password
+          document.getElementById('email-input').classList.remove('login-error');
+          document.getElementById('password-input').classList.add('login-error');
+          document.getElementById('firstname-input').classList.remove('login-error');
+          document.getElementById('lastname-input').classList.remove('login-error');
+          document.getElementById('studentid-input').classList.remove('login-error');
+          document.getElementById('password-confirm').classList.remove('login-error');
+          document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Enter a password</span></div>";
+        }
+      } else {
+        // Bad email input
+        document.getElementById('email-input').classList.add('login-error');
+        document.getElementById('password-input').classList.remove('login-error');
+        document.getElementById('firstname-input').classList.remove('login-error');
+        document.getElementById('lastname-input').classList.remove('login-error');
+        document.getElementById('studentid-input').classList.remove('login-error');
+        document.getElementById('password-confirm').classList.remove('login-error');
+        document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Enter a valid email</span></div>";
+      }
+    } else {
+      // invalid student id
+      document.getElementById('email-input').classList.remove('login-error');
+      document.getElementById('firstname-input').classList.remove('login-error');
+      document.getElementById('lastname-input').classList.remove('login-error');
+      document.getElementById('studentid-input').classList.add('login-error');
+      document.getElementById('password-confirm').classList.remove('login-error');
+      document.getElementById('password-input').classList.remove('login-error');
+      document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Enter your student ID</span></div>";
+    }
+  } else {
+    // no lastname
+    document.getElementById('email-input').classList.remove('login-error');
+    document.getElementById('firstname-input').classList.remove('login-error');
+    document.getElementById('lastname-input').classList.add('login-error');
+    document.getElementById('studentid-input').classList.remove('login-error');
+    document.getElementById('password-confirm').classList.remove('login-error');
+    document.getElementById('password-input').classList.remove('login-error');
+    document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Enter your last name</span></div>";
+  }
+} else {
+  // no firstname
+  document.getElementById('email-input').classList.remove('login-error');
+  document.getElementById('firstname-input').classList.add('login-error');
+  document.getElementById('lastname-input').classList.remove('login-error');
+  document.getElementById('studentid-input').classList.remove('login-error');
+  document.getElementById('password-confirm').classList.remove('login-error');
+  document.getElementById('password-input').classList.remove('login-error');
+  document.getElementById('login-error-message').innerHTML = "<div style=\" margin-top: -10px; margin-bottom: 8px; font-size: 1.5rem; \"><span style=\"color: red; text-align: center; font-weight: 400; \">Enter your first name</span></div>";
+}
+} else {
+// If there isn't any input, dont give any errors
+document.getElementById('email-input').classList.remove('login-error');
+document.getElementById('firstname-input').classList.remove('login-error');
+document.getElementById('lastname-input').classList.remove('login-error');
+document.getElementById('studentid-input').classList.remove('login-error');
+document.getElementById('password-confirm').classList.remove('login-error');
+document.getElementById('password-input').classList.remove('login-error');
+document.getElementById('login-error-message').innerHTML = "";
+}
+};
+
+document.getElementById('login-button').onclick = registerAction;
+document.body.addEventListener('keydown', function (event) {
+if (event.keyCode === 13 && event.repeat === false) {
+registerAction();
+}
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imageUpload").change(function() {
+    readURL(this);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="it has-background-info">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Banks</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <!-- Bulma Version 0.7.1-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+  <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+
+<style>
+</style>
+
+</head>
+
+<body>
+  <script src="~bulma-calendar/dist/js/bulma-calendar.min.js">
+
+
+  // Initialize all input of date type.
+  var calendars = bulmaCalendar.attach('[type="date"]', options);
+
+  // Loop on each calendar initialized
+  for(var i = 0; i < calendars.length; i++) {
+  // Add listener to date:selected event
+  calendars[i].on('date:selected', date => {
+  console.log(date);
+  });
+  }
+
+  </script>
+  <!-- START NAV -->
+  <nav class="navbar has-background-info">
+      <div class="container has-background-info">
+          <div class="navbar-brand has-background-info">
+              <a class="navbar-item brand-text has-background-info" href="../">
+
+      </a>
+
+      </div>
+  </nav>
+  <!-- END NAV -->
+        <div class="container has-background-info is-mobile">
+          <div class="columns has-background-info">
+            <div class="column is-3 has-background-info">
+              <aside class="menu has-background-info">
+
+                  <ul class="menu-list has-background-info">
+                      <li>
+                          Manage Your Mentee
+                          <ul>
+                              <li><a>Add Tasks</a></li>
+                              <li><a>Chatroom</a></li>
+                              <li><a>Schedule a Meeting</a></li>
+                          </ul>
+                      </li>
+                    </ul>
+                </aside>
+              </div>
+                <div class="column is-9">
+                      <div class="column is-9">
+
+
+                              <div class="content">
+                                <div class="control has-icons-left has-icons-right">
+                                  <label class="checkbox">
+                                    <div id="map">
+
+                                    </div>
+                                    </label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <br />
+
+                          </div>
+                      </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 38.627, lng: -90.1994};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+  <script async type="text/javascript" src="../js/bulma.js"async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrzf6iJ-6AvJE0ncq_ZP1jWBejWrlXd6c&callback=initMap">
+
+  </script>
+</body>
+</html>
